@@ -29,10 +29,10 @@ TMP_DIR="$OUT_DIR/zip"
 ZIP_FILE_SUFFIX="-sign.zip"
 ! $ROM_IS_OFFICIAL && ZIP_FILE_SUFFIX=".zip"
 
-ZIP_FILE_NAME="ProjectNERV_${ROM_VERSION}_$(date +%Y%m%d)_${TARGET_CODENAME}${ZIP_FILE_SUFFIX}"
+ZIP_FILE_NAME="ArkaOS_${ROM_VERSION}_$(date +%Y%m%d)_${TARGET_CODENAME}${ZIP_FILE_SUFFIX}"
 while [ -f "$OUT_DIR/$ZIP_FILE_NAME" ]; do
     INCREMENTAL=$((INCREMENTAL + 1))
-    ZIP_FILE_NAME="ProjectNERV_${ROM_VERSION}_$(date +%Y%m%d)-${INCREMENTAL}_${TARGET_CODENAME}${ZIP_FILE_SUFFIX}"
+    ZIP_FILE_NAME="ArkaOS_${ROM_VERSION}_$(date +%Y%m%d)-${INCREMENTAL}_${TARGET_CODENAME}${ZIP_FILE_SUFFIX}"
 done
 
 PRIVATE_KEY_PATH="$SRC_DIR/security/"
@@ -481,14 +481,14 @@ PRINT_HEADER()
         ONEUI_VERSION="$MAJOR.$MINOR"
     fi
 
-    echo    'ui_print(" ");'
-    echo    'ui_print("************************************************");'
-    echo    'ui_print(" ");'
-    echo    'ui_print("              _  __ ____ ___  _   __");'
-    echo    'ui_print("             / |/ // __// _ \| | / /");'
-    echo    'ui_print("            /    // _/ / , _/| |/ / ");'
-    echo    'ui_print("           /_/|_//___//_/|_| |___/  ");'
-    echo    'ui_print(" ");'
+    echo 'ui_print(" ");'
+    echo 'ui_print("    █████╗  ██████╗ ██╗ ██╗  █████╗   ██████╗  ███████╗ ");'
+    echo 'ui_print("   ██╔══██╗██╔══██╗██║ ██╔╝██╔══██╗ ██╔════╝  ██╔════╝ ");'
+    echo 'ui_print("   ███████║██████╔╝█████╔╝ ███████║ ██║  ███╗ ███████╗ ");'
+    echo 'ui_print("   ██╔══██║██╔══██╗██╔═██╗ ██╔══██║ ██║   ██║ ╚════██║ ");'
+    echo 'ui_print("   ██║  ██║██║   ██║██║ ██╗ ██║  ██║ ╚██████╔╝ ███████║ ");'
+    echo 'ui_print("   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝  ╚═════╝  ╚══════╝ ");'
+    echo 'ui_print(" ");'
     echo -n 'ui_print("'
     for i in $(seq 1 "$SIDE_PADDING"); do
         echo -n ' '
@@ -497,6 +497,9 @@ PRINT_HEADER()
     echo    '");'
     echo    'ui_print(" ");'
     echo    'ui_print("************************************************");'
+    echo -n 'ui_print("'
+    echo -n "ROM version: $ROM_VERSION"
+    echo    '");'
     echo -n 'ui_print("'
     echo -n "One UI version: $ONEUI_VERSION"
     echo    '");'
